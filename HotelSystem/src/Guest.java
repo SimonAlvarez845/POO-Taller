@@ -17,8 +17,10 @@ public class Guest extends Person
         this.telefono = telefono;
     }
 
-    // Metodo que compara Guests
-    public boolean equalsGuest(Object o) {
+    // Incluir en presentacion
+    // Sobrescribimos equals() para que compare Guests usando su id verificando si es el mismo objeto en memoria, luego verificamos que el objeto sea de tipo Guest y finalmente comparamos los ids. Si los ids son iguales, es el mismo invitado.
+    @Override
+    public boolean equals(Object o) {
 
         if (this == o) {
             return true;
@@ -41,6 +43,13 @@ public class Guest extends Person
                 " nombre: " + nombre +
                 " email: " + email +
                 " telefono: " + telefono;
+    }
+
+    // Como reescribimos un equals() tambien sobreescribimos el hash por regla del proyecto
+    @Override
+    public int hashCode()
+    {
+        return id;
     }
 
     // Reutilizamos el abstract method de Persona

@@ -21,7 +21,7 @@ public class Hotel
         cantidadReservas = 0;
     }
 
-    // --------- INVITADOS ---------
+    // Metodos Invitados
 
     public void addGuest(Guest invitado) {
         if (cantidadInvitados == invitados.length)
@@ -41,7 +41,7 @@ public class Hotel
         return null;
     }
 
-    // --------- HABITACIONES ---------
+    // Metodos Habitaciones
 
     public void addRoom(Room habitacion) {
         if (cantidadHabitaciones == habitaciones.length) {
@@ -78,9 +78,9 @@ public class Hotel
         }
     }
 
-    // --------- RESERVAS ---------
+    // Metodos Reservas
 
-    public void createReservation(int idInvitado, int numeroHabitacion, String fechaInicio, String fechaFin) throws InvalidDateException, RoomUnavailableException {
+    public void createReservation(int idInvitado, int numeroHabitacion, String fechaInicio, String fechaFin) throws InvalidDateException, RoomUnavailableException, GuestNotFoundException, RoomNotFoundException {
 
         if (!Date_Utils.isValidDate(fechaInicio) || !Date_Utils.isValidDate(fechaFin)) {
             throw new InvalidDateException("Fecha invalida");
@@ -91,8 +91,14 @@ public class Hotel
         }
 
         Guest invitado = findGuest(idInvitado); // Busca al invitado dentro de Hotel (izq) y lo guarda, usando los datos de invitado para crear reserva
-        Room habitacion = findRoom(numeroHabitacion);   // Verifica si habitacion esta disponible en la fecha elegida (izq) y la guarda, usa datos de habitacion para crear reserva
+        if (invitado == null) {
+            throw new GuestNotFoundException("No se encontró invitado con ID: " + idInvitado);
+        }
 
+        Room habitacion = findRoom(numeroHabitacion);   // Verifica si habitacion esta disponible en la fecha elegida (izq) y la guarda, usa datos de habitacion para crear reserva
+        if (habitacion == null) {
+            throw new RoomNotFoundException("No se encontró habitación número: " + numeroHabitacion);
+        }
 
         if (invitado == null || habitacion == null) {
             return;

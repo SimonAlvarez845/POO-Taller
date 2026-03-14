@@ -26,6 +26,7 @@ public class Reservation
 
     public boolean conflictsWith(String inicio, String fin)
     {
+        // FALTA LOGICA para manejar RoomUnavailableException aqui
         return false;
     }
 }

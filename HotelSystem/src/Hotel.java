@@ -8,7 +8,7 @@ public class Hotel
     private int cantidadInvitados;
     private int cantidadReservas;
 
-    // Inicializa el sistema del hotel creando arrays donde se almacenarán habitaciones, invitados y reservas
+    // Inicializa el sistema del hotel creando arrays vacias donde se almacenarán habitaciones, invitados y reservas
     public Hotel(int capacidadHabitaciones, int capacidadInvitados, int capacidadReservas) {
 
         habitaciones = new Room[capacidadHabitaciones];
@@ -47,7 +47,7 @@ public class Hotel
         if (cantidadHabitaciones == habitaciones.length) {
             resizeRoomsArray();
         }
-        habitaciones[cantidadHabitaciones] = habitacion;
+        habitaciones[cantidadHabitaciones] = habitacion; // guardala en el primer espacio libre del array
         cantidadHabitaciones++;
     }
 
@@ -90,12 +90,12 @@ public class Hotel
             throw new InvalidDateException("La fecha inicial debe ser antes de la final");
         }
 
-        Guest invitado = findGuest(idInvitado); // Busca al invitado dentro de Hotel (izq) y lo guarda, usando los datos de invitado para crear reserva
+        Guest invitado = findGuest(idInvitado); // Busca al invitado dentro de Hotel (izq) y lo guarda, usando el id del invitado para crear la reserva
         if (invitado == null) {
             throw new GuestNotFoundException("No se encontró invitado con ID: " + idInvitado);
         }
 
-        Room habitacion = findRoom(numeroHabitacion);   // Verifica si habitacion esta disponible en la fecha elegida (izq) y la guarda, usa datos de habitacion para crear reserva
+        Room habitacion = findRoom(numeroHabitacion);   // Verifica si habitacion esta disponible en la fecha elegida (izq) y la guarda, usa el # de habitacion para crear reserva
         if (habitacion == null) {
             throw new RoomNotFoundException("No se encontró habitación número: " + numeroHabitacion);
         }
@@ -112,8 +112,7 @@ public class Hotel
             resizeReservationsArray();
         }
 
-        int nuevoId = cantidadReservas + 1;
-
+        int nuevoId = cantidadReservas + 1; // le asigna un nuevo id a la reserva, la crea, ingresa en el array de reservas y la cuenta en el sistema.
         Reservation reservaNueva = new Reservation(nuevoId, invitado, habitacion, fechaInicio, fechaFin);
         reservas[cantidadReservas] = reservaNueva;
         cantidadReservas++;
@@ -134,7 +133,7 @@ public class Hotel
 
     // --------- RESIZE ARRAYS ---------
 
-    // se crea otro nuevo mas grande si se quiere agrandar (x2 para no quemar tanta memoria)
+    // se crea otro array nuevo mas grande si se quiere agrandar (x2 para no quemar tanta memoria)
     private void resizeRoomsArray() {
         Room[] nuevasHabitaciones = new Room[habitaciones.length * 2];
 
@@ -143,7 +142,7 @@ public class Hotel
             nuevasHabitaciones[i] = habitaciones[i]; // reemplaza el pequeño por el grande
         }
 
-        habitaciones = nuevasHabitaciones; // declara el nombre de la var temporal igual al nombre de la var original (evita calling issues)
+        habitaciones = nuevasHabitaciones; // sobreescribe el nombre de la var temporal y lo pone igual al nombre de la var original (evita calling issues)
     }
 
     private void resizeGuestsArray() {

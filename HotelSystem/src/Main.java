@@ -129,7 +129,7 @@ public class Main {
         try
         {
             hotel.createReservation(1, 101, "2025-12-10", "2025-12-15");
-            System.out.println("Reserva creada correctamente.");
+            System.out.println("[NO ERRORS] Reserva creada correctamente.");
         }
         catch (InvalidDateException | GuestNotFoundException | RoomNotFoundException | RoomUnavailableException e)
         {

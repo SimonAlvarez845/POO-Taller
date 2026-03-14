@@ -1,57 +1,129 @@
-# POO-Taller
-Repositorio académico para nuestro primer taller universitario de POO ft Java.
 
 <div align="center">
-  <img src="assets/banner.png" width="300" height="300" alt="Hotel System Banner" />
+<img src="Banner.png" width="280" alt="Hotel System Banner" />
 
-  <h1>Hotel Management System</h1>
+<br/>
 
-  <p>A modular hotel management system built in Java using core Object-Oriented Programming principles and UML-driven design.</p>
+# 🏨 Ultimate Hotel Management System
 
-  <a href="https://github.com/SimonAlvarez845/Project-POO-Java/issues">Report Bug</a>
-  ·
-  <a href="https://github.com/SimonAlvarez845/Project-POO-Java/issues">Request Feature</a>
+### *A fully object-oriented hotel reservation academic engine built in Java*
+
+<br/>
+
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellij-idea&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![Status](https://img.shields.io/badge/Status-In%20Progress-orange?style=for-the-badge)
+
+<br/>
+
+*Built from scratch — no libraries, no shortcuts.*
+
+<br/>
+
+[🐛 Report Bug](https://github.com/SimonAlvarez845/POO-Taller/issues)
+·
+[✨ Request Feature](https://github.com/SimonAlvarez845/POO-Taller/issues)
+·
+[📖 Documentation](https://github.com/SimonAlvarez845/POO-Taller)
+
 </div>
 
 ---
 
-## Table of Contents
+## 📋 Table of Contents
 
-- [About the Project](#about-the-project)
-- [Features](#features)
-- [Roadmap](#roadmap)
-- [FAQ](#faq)
-
----
-
-## About the Project
-
-This system simulates hotel operations through clean OOP design. It handles guest registration, room management, and reservation booking with custom exception handling and date validation — all built without external libraries, using raw arrays to understand how dynamic structures work internally.
+- [📖 About the Project](#-about-the-project)
+- [✨ Features](#-features)
+- [🏗️ Project Structure](#️-project-structure)
+- [⚠️ Exception Handling](#️-exception-handling)
+- [🗺️ Roadmap](#️-roadmap)
+- [❓ FAQ](#-faq)
 
 ---
 
-## Features
+## 📖 About the Project
 
-| Feature | Status |
+> A modular hotel management system built in Java using core **Object-Oriented Programming** principles and **UML-driven design**.
+
+This system simulates real hotel operations — The goal being not only to make something that works, but to practice **thinking in objects** — modeling guests, rooms and reservations as independent components that interact with each other. Some design decisions being intentional:
+
+
+- 🧠 **Raw arrays** instead of `ArrayList` — to deeply understand how dynamic structures work internally
+- 🛡️ **Custom exceptions** — to model real business logic errors, not just technical crashes
+- 📅 **String-based dates** — to focus on architecture first, before introducing `java.time`
+
+This is a learning project built with curiosity, friendship, and the a share passion to grow as programmers.
+
+Although this started as a learning exercise, the project attempts to maintain **clean structure, modular code, and readable design**.
+---
+
+## ✨ Features
+
+| 🔧 Feature | 📝 Description | ✅ Status |
+|---|---|---|
+| 👤 Guest Management | Register, search guests by ID | Done |
+| 🛏️ Room Management | Add, find and remove rooms | Done |
+| 📅 Reservation System | Book rooms with date ranges | Done |
+| 🔎 Availability Engine | Detects conflicting reservations | Done |
+| 🗓️ Date Validator | Validates format and logical order | Done |
+| 🛡️ Custom Exceptions | Meaningful errors for every failure case | Done |
+
+---
+
+## 🏗️ V1.0 Project Structure
+```
+POO-Taller/
+│
+├── 📁 HotelSystem/
+│   ├── 🏨 Hotel.java             ← core system, manages all entities
+│   ├── 👤 Guest.java             ← guest model
+│   ├── 🛏️  Room.java              ← room model + availability logic
+│   ├── 📅 Reservation.java       ← reservation model + conflict detection
+│   ├── 🗓️  Date_Utils.java        ← date validation utilities
+│   │
+│   ├── 📁 exceptions/
+│   │   ├── InvalidDateException.java
+│   │   ├── RoomUnavailableException.java
+│   │   ├── GuestNotFoundException.java
+│   │   └── RoomNotFoundException.java
+│   │
+│   └── 🧪 Main.java              ← test entry point
+│
+├── 📄 README.md
+└── 📄 .gitignore
+```
+
+---
+
+## ⚠️ Exception Handling
+
+The system uses **4 custom exceptions** that represent real business logic failures:
+
+| Exception | When it triggers |
 |---|---|
-| Guest management | ✅ Done |
-| Room management | ✅ Done |
-| Reservation system | ✅ Done |
-| Availability engine | ✅ Done |
-| Date validator | ✅ Done |
-| Custom exceptions | ✅ Done |
+| `InvalidDateException` | Date has wrong format or check-in is after check-out |
+| `RoomUnavailableException` | Room already booked for those dates |
+| `GuestNotFoundException` | No guest found with that ID |
+| `RoomNotFoundException` | No room found with that number |
+
+> 💡 Every exception extends `Java.Exception` and carries a descriptive message — making bugs easy to trace.
 
 ---
 
-## Roadmap
+## 🗺️ Roadmap
 
+**Done ✅**
 - [x] Guest manager
 - [x] Room manager
 - [x] Reservation system
 - [x] Availability engine
 - [x] Date validator
-- [ ] Replace arrays with `ArrayList`
-- [ ] Add interfaces
+- [x] Custom exceptions
+
+**Coming up 🚧**
+- [ ] Replace arrays with `ArrayList<T>`
+- [ ] Add new interfaces for polymorphism
 - [ ] Improve error reporting
 - [ ] Database integration
 - [ ] Load pricing system
@@ -60,19 +132,36 @@ This system simulates hotel operations through clean OOP design. It handles gues
 
 ---
 
-## FAQ
+## ❓ FAQ
 
-**Why not use ArrayList?**  
-The project intentionally uses raw arrays to understand how dynamic structures work internally. Future versions may migrate to `ArrayList`.
+<details>
+<summary><b>Why not use ArrayList?</b></summary>
+<br/>
+The project intentionally uses raw arrays to understand how dynamic structures work internally. Implementing <code>resize()</code> manually teaches what ArrayList does under the hood. Future versions will migrate.
+</details>
 
-**Why use custom exceptions?**  
-Custom exceptions make the system easier to debug and maintain. They represent business logic errors, not just technical ones.
+<details>
+<summary><b>Why use custom exceptions?</b></summary>
+<br/>
+Custom exceptions represent business logic errors, not just crashes. <code>GuestNotFoundException</code> is far more useful than a generic <code>NullPointerException</code> when debugging.
+</details>
 
-**Why is Date stored as String?**  
-To simplify early validation and focus on architecture. Later versions will use `LocalDate` from `java.time`.
+<details>
+<summary><b>Why is Date stored as String?</b></summary>
+<br/>
+To keep the focus on architecture and OOP design early on. Later versions will use <code>LocalDate</code> from <code>java.time</code> for proper date arithmetic.
+</details>
 
 ---
 
 <div align="center">
-  <sub>Built by <a href="https://github.com/SimonAlvarez845">@Simon</a></sub>
+
+<br/>
+
+*Built with ☕ and way too many compile errors*
+
+<br/>
+
+**[@SimonAlvarez845](https://github.com/SimonAlvarez845)**
+
 </div>

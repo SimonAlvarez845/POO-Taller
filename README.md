@@ -1,74 +1,78 @@
 # POO-Taller
 Repositorio académico para nuestro primer taller universitario de POO ft Java.
 
-<div align='center'>
+<div align="center">
+  <img src="assets/banner.png" width="300" height="300" alt="Hotel System Banner" />
 
-<img src=https://www.google.com/search?q=https://images.squarespace-cdn.com/content/v1/5e739f75f68b3d6f140d3423/1664551109033-6W459P8D3O2R7K6A1F9C/Retro%2BVintage%2BSunset%2BHouse%2Bwith%2BPalm%2BTrees.jpg alt="logo" width=300 height=300 />
+  <h1>Hotel Management System</h1>
 
-<h1>Object-Oriented Hotel Management System in Java</h1>
-<p>A modular hotel management system built in Java using core Object-Oriented Programming principles and UML-driven design.</p>
+  <p>A modular hotel management system built in Java using core Object-Oriented Programming principles and UML-driven design.</p>
 
-<h4> <span> · </span> <a href="https://github.com/SimonAlvarez845/Project POO - Java/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/SimonAlvarez845/Project POO - Java/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/SimonAlvarez845/Project POO - Java/issues"> Request Feature </a> </h4>
-
-
+  <a href="https://github.com/SimonAlvarez845/Project-POO-Java/issues">Report Bug</a>
+  ·
+  <a href="https://github.com/SimonAlvarez845/Project-POO-Java/issues">Request Feature</a>
 </div>
 
-# :notebook_with_decorative_cover: Table of Contents
+---
 
-- [About the Project](#star2-about-the-project)
-- [Roadmap](#compass-roadmap)
-- [Contributing](#wave-contributing)
-- [FAQ](#grey_question-faq)
+## Table of Contents
 
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Roadmap](#roadmap)
+- [FAQ](#faq)
 
-## :star2: About the Project
+---
 
-### :dart: Features
-- ⭐Guest Management
-- 🛏 Room Management
-- 📅 Reservation System
-- 🔎 Availability Engine
-- 🛡 Error Handling
+## About the Project
 
+This system simulates hotel operations through clean OOP design. It handles guest registration, room management, and reservation booking with custom exception handling and date validation — all built without external libraries, using raw arrays to understand how dynamic structures work internally.
 
-### :art: Color Reference
-| Color | Hex |
-| --------------- | ---------------------------------------------------------------- |
-| Primary Color | ![#FF7A45](https://via.placeholder.com/10/FF7A45?text=+) #FF7A45 |
-| Secondary Color | ![#4ECDC4](https://via.placeholder.com/10/4ECDC4?text=+) #4ECDC4 |
-| Accent Color | ![#F2545B](https://via.placeholder.com/10/F2545B?text=+) #F2545B |
-| Text Color | ![#1A1A1A](https://via.placeholder.com/10/1A1A1A?text=+) #1A1A1A |
+---
 
-## :compass: Roadmap
+## Features
 
-* [x] Guest Manager
-* [x] Room Manager
-* [x] Reservation System
-* [x] Availability Bot
-* [x] Date Validator
-* [ ] Replace Arrays
-* [ ] Add Interface
-* [ ] Improve Error Reporting
-* [ ] Database Integration
-* [ ] New Reservation Types
-* [ ] Load Pricing System
-* [ ] Admin Dashboard
-* [ ] API
+| Feature | Status |
+|---|---|
+| Guest management | ✅ Done |
+| Room management | ✅ Done |
+| Reservation system | ✅ Done |
+| Availability engine | ✅ Done |
+| Date validator | ✅ Done |
+| Custom exceptions | ✅ Done |
 
+---
 
-## :wave: Contributing
+## Roadmap
 
-<a href="https://github.com/SimonAlvarez845/POO-Taller.git/graphs/contributors"> <img src="https://contrib.rocks/image?repo=Louis3797/awesome-readme-template" /> </a>
+- [x] Guest manager
+- [x] Room manager
+- [x] Reservation system
+- [x] Availability engine
+- [x] Date validator
+- [ ] Replace arrays with `ArrayList`
+- [ ] Add interfaces
+- [ ] Improve error reporting
+- [ ] Database integration
+- [ ] Load pricing system
+- [ ] Admin dashboard
+- [ ] REST API
 
-Contributions are always welcome!
+---
 
-see `contributing.md` for ways to get started
+## FAQ
 
-## :grey_question: FAQ
+**Why not use ArrayList?**  
+The project intentionally uses raw arrays to understand how dynamic structures work internally. Future versions may migrate to `ArrayList`.
 
-- Why not use ArrayList?
-- The project intentionally uses arrays to understand how dynamic structures work internally. Future versions may migrate to ArrayList.
-- Why use custom exceptions?
-- Custom exceptions make the system easier to debug and maintain. They typically represent business logic errores, not technical ones.
-- Why is Date stored as String?
-- To simplify early validation and focus on architecture design. Later versions will use LocalDate from java.time
+**Why use custom exceptions?**  
+Custom exceptions make the system easier to debug and maintain. They represent business logic errors, not just technical ones.
+
+**Why is Date stored as String?**  
+To simplify early validation and focus on architecture. Later versions will use `LocalDate` from `java.time`.
+
+---
+
+<div align="center">
+  <sub>Built by <a href="https://github.com/SimonAlvarez845">@Simon</a></sub>
+</div>
